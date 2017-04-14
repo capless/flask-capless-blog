@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+
+{% block main_content %}
+<ul>
+    {% for object in posts %}
+    <li><a href="/post/{{ object.slug }}">{{ object.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}

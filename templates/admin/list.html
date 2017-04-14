@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Posts{% endblock %}
+{% block css %}
+{{ super() }}
+    <style type="text/css" media="all">
+        #create-post {
+            margin:10px 0 20px;
+        }
+    </style>
+{% endblock %}
+{% block main_content %}
+<h2>Posts</h2>
+    <a href="{{ url_for('create_post') }}" class="btn btn-success" id="create-post">Create a Post</a>
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Slug</th>
+
+        <th></th>
+    </tr>
+    {% for post in posts %}
+    <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.slug }}</td>
+
+        <td>
+            <a href="{{ url_for('post',slug=post.slug) }}" class="btn btn-success">View Post</a>
+            <a href="{{ url_for('update_post',slug=post.slug) }}" class="btn btn-warning">Update</a>
+            <a href="{{ url_for('delete_post',slug=post.slug) }}" class="btn btn-danger">Delete</a>
+
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

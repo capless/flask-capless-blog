@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{{ super() }}
+    {{ form.render_static_assets()|safe }}
+{% endblock %}
+{% block main_content %}
+<h2>Update {{ post.title }}</h2>
+    <form class="form" method="POST">
+    {{ form.render()|safe }}
+    </form>
+{% endblock %}
