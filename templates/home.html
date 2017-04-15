@@ -2,9 +2,12 @@
 
 
 {% block main_content %}
-<ul>
+
     {% for object in posts %}
-    <li><a href="/post/{{ object.slug }}">{{ object.title }}</a></li>
+    <div class="row">
+        <h2><a href="/post/{{ object.slug }}">{{ object.title }}</a></h2>
+        <div>{{ object.body|striptags|truncate(100) }}</div>
+    </div>
     {% endfor %}
-</ul>
+
 {% endblock %}

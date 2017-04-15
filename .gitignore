@@ -2,10 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+zappa_settings.json
 # C extensions
 *.so
-
+*.idea*
 # Distribution / packaging
 .Python
 env/
